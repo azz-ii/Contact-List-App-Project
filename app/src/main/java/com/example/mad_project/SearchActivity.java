@@ -3,26 +3,28 @@ package com.example.mad_project;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-
-public class HomeActivity extends AppCompatActivity {
-
-
+public class SearchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
+        setContentView(R.layout.activity_search);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.btn_home);
+        bottomNavigationView.setSelectedItemId(R.id.btn_search);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.btn_home){
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
                 return true;
             }else if(item.getItemId() == R.id.btn_add) {
                 startActivity(new Intent(getApplicationContext(), AddActivity.class));
@@ -30,14 +32,12 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
                 return true;
             } else if (item.getItemId() == R.id.btn_search) {
-                startActivity(new Intent(getApplicationContext(), SearchActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
                 return true;
             } else{
                 return false;
             }
 
         });
-    }
 
+    }
 }

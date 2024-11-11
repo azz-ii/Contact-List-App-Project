@@ -7,27 +7,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-
-public class HomeActivity extends AppCompatActivity {
-
-
+public class AddActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
+        setContentView(R.layout.activity_add);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
-        bottomNavigationView.setSelectedItemId(R.id.btn_home);
+        bottomNavigationView.setSelectedItemId(R.id.btn_add);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.btn_home){
-                return true;
-            }else if(item.getItemId() == R.id.btn_add) {
-                startActivity(new Intent(getApplicationContext(), AddActivity.class));
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
                 finish();
+                return true;
+            }else if(item.getItemId() == R.id.btn_add) {
+
                 return true;
             } else if (item.getItemId() == R.id.btn_search) {
                 startActivity(new Intent(getApplicationContext(), SearchActivity.class));
@@ -39,5 +36,4 @@ public class HomeActivity extends AppCompatActivity {
 
         });
     }
-
 }

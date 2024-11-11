@@ -3,4 +3,9 @@
         <item name="colorPrimary">@color/primary</item>
     </style>
     <style name="Theme.MAD_PROJECT" parent="Base.Theme.MAD_PROJECT" />
+
+    <style name="SlideActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_in_left</item>
+    </style>
 </resources>
