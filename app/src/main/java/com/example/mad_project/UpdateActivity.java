@@ -36,7 +36,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         String id = i.getStringExtra("id");
-        lblID.setText(id);
+        lblID.setText("Current ID: " + id);
 
         DatabaseHelper dh = new DatabaseHelper(UpdateActivity.this);
         Cursor cursor = dh.readContactByID(id);
