@@ -2,6 +2,7 @@
     <string name="app_name">MAD_PROJECT</string>
     <string name="lbl_logo">KONTAK</string>
     <string name="lbl_add">Add Contact</string>
+    <string name="lbl_fill">Please fill up the form...</string>
     <string name="logo">Logo</string>
     <string name="home">Home</string>
     <string name="add">Add</string>
