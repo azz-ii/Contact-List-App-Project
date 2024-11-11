@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MAD_PROJECT</string>
+    <string name="lbl_contacts">All Contacts</string>
 </resources>
