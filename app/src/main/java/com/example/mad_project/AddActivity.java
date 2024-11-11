@@ -1,6 +1,9 @@
 package com.example.mad_project;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -14,7 +17,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class AddActivity extends AppCompatActivity {
 
     EditText txtFirstName, txtLastName, txtContactNumber;
-    Button btnAdd;
+    Button btnAdd, btnDialogConfirm;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +29,15 @@ public class AddActivity extends AppCompatActivity {
         txtLastName = findViewById(R.id.txtLastName);
         txtContactNumber = findViewById(R.id.txtContactNumber);
 
-        btnAdd = findViewById(R.id.btnAdd);
+        dialog = new Dialog(AddActivity.this);
+        dialog.setContentView(R.layout.added_dialog_box);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_bg));
+        dialog.setCancelable(false);
 
+        btnDialogConfirm = dialog.findViewById(R.id.btnDialogConfirm);
+
+        btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(v -> {
 
             String firstName = txtFirstName.getText().toString();
@@ -38,8 +49,16 @@ public class AddActivity extends AppCompatActivity {
             Contact c = new Contact(firstName, lastName, contactNumber);
             dh.createContact(c);
 
-
+            dialog.show();
         });
+
+        btnDialogConfirm.setOnClickListener(v -> {
+            Intent i = new Intent(AddActivity.this, HomeActivity.class);
+            startActivity(i);
+            finish();
+            dialog.dismiss();
+        });
+
 
 
 

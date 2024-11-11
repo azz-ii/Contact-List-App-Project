@@ -2,6 +2,8 @@
     <string name="app_name">MAD_PROJECT</string>
     <string name="lbl_logo">All Contacts</string>
     <string name="lbl_add">Add Contact</string>
+    <string name="lbl_added">Contact Added</string>
+    <string name="lbl_added_confirm">This Contact has been Added to your List!</string>
     <string name="lbl_fill">Please fill up the form...</string>
     <string name="logo">Logo</string>
     <string name="home">Home</string>

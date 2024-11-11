@@ -52,7 +52,6 @@ public class HomeActivity extends AppCompatActivity {
                 contactList.add(c);
 
             }
-            Toast.makeText(this, contactList.size() + "", Toast.LENGTH_SHORT).show();
         }
 
         rvContacts = findViewById(R.id.rvContacts);
