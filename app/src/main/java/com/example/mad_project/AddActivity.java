@@ -38,6 +38,8 @@ public class AddActivity extends AppCompatActivity {
 
             Contact c = new Contact(firstName, lastName, contactNumber);
             dh.createContact(c);
+
+
         });
 
 
