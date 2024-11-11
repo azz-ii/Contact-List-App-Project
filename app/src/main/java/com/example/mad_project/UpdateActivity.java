@@ -1,8 +1,10 @@
 package com.example.mad_project;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,8 +20,8 @@ public class UpdateActivity extends AppCompatActivity {
 
     TextView lblID;
     EditText txtFirstName, txtLastName, txtContactNumber;
-
-    Button btnUpdate, btnCancel;
+    Dialog dialog;
+    Button btnUpdate, btnCancel, btnDialogConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,14 @@ public class UpdateActivity extends AppCompatActivity {
 
         btnUpdate = findViewById(R.id.btnUpdate);
         btnCancel = findViewById(R.id.btnCancel);
+
+        dialog = new Dialog(UpdateActivity.this);
+        dialog.setContentView(R.layout.added_dialog_box);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_bg));
+        dialog.setCancelable(false);
+
+        btnDialogConfirm = dialog.findViewById(R.id.btnDialogConfirm);
 
         Intent i = getIntent();
         String id = i.getStringExtra("id");
@@ -52,6 +62,7 @@ public class UpdateActivity extends AppCompatActivity {
         });
 
         btnUpdate.setOnClickListener(v -> {
+
             int ID = Integer.parseInt(id);
             String firstName = txtFirstName.getText().toString();
             String lastName = txtLastName.getText().toString();
@@ -64,9 +75,15 @@ public class UpdateActivity extends AppCompatActivity {
                 Toast.makeText(this, "ERROR!", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(this, "UPDATE SUCCESSFUL", Toast.LENGTH_SHORT).show();
-                getOnBackPressedDispatcher().onBackPressed();
+                btnDialogConfirm.setOnClickListener(v1 -> {
+                    dialog.dismiss();
+                    getOnBackPressedDispatcher().onBackPressed();
+                });
+
             }
+            dialog.show();
         });
+
 
 
 
