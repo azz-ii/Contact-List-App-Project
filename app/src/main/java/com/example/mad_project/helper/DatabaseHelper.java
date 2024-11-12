@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (result == -1){
             Toast.makeText(context, "Failed to Insert", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, contact.getFirstName() + " SAVED SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Added Successfully", Toast.LENGTH_SHORT).show();
         }
         return result;
     }

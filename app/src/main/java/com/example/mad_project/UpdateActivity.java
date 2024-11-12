@@ -37,7 +37,7 @@ public class UpdateActivity extends AppCompatActivity {
         btnCancel = findViewById(R.id.btnCancel);
 
         dialog = new Dialog(UpdateActivity.this);
-        dialog.setContentView(R.layout.added_dialog_box);
+        dialog.setContentView(R.layout.updated_dialog_box);
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_bg));
         dialog.setCancelable(false);

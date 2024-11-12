@@ -53,8 +53,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="536dp"
+        android:gravity="center_horizontal"
         android:layout_marginTop="70dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
