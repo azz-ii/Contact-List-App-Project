@@ -16,6 +16,7 @@ import com.example.mad_project.UpdateActivity;
 import com.example.mad_project.entity.Contact;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder>{
     private Context context;
@@ -74,4 +75,5 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             imgEdit = itemView.findViewById(R.id.imgEdit);
         }
     }
+
 }

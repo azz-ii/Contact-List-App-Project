@@ -105,4 +105,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.update(TABLE_NAME, cv, "id=?", new String[]{contact.getID()+""});
     }
 
+
+
 }
