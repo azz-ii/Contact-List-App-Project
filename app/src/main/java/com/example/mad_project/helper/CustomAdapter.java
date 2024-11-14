@@ -1,6 +1,8 @@
 package com.example.mad_project.helper;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,7 +54,35 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             context.startActivity(i);
         });
 
+        holder.imgTrash.setOnClickListener(v -> {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("Gonna say goodbye?");
+            builder.setMessage("Are you sure you want to delete " + holder.txtFullName.getText() + "?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    DatabaseHelper dh = new DatabaseHelper(context);
+                    dh.deleteOneRow(String.valueOf(c.getID()));
+                    contactList.remove(position);
+                    notifyItemRemoved(position);
+                }
+            });
+
+            builder.setNegativeButton("No", (dialog, which) -> dialog.dismiss());
+
+            builder.create().show();
+        });
+
+
+
+
+
+
+
     }
+
+
 
     @Override
     public int getItemCount() {
