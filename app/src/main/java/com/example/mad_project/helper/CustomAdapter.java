@@ -42,7 +42,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        //setting of data
+        // Edit and Delete
         Contact c = contactList.get(position);
 
         holder.txtID.setText(c.getID()+"");
