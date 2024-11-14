@@ -1,5 +1,6 @@
 package com.example.mad_project.helper;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -40,7 +41,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //setting of data
         Contact c = contactList.get(position);
 
@@ -74,15 +75,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             builder.create().show();
         });
 
-
-
-
-
-
-
     }
-
-
 
     @Override
     public int getItemCount() {
