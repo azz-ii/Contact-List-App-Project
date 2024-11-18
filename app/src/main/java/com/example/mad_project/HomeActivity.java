@@ -1,8 +1,9 @@
 package com.example.mad_project;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
+import androidx.activity.SystemBarStyle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        EdgeToEdge.enable(this, SystemBarStyle.dark(android.graphics.Color.TRANSPARENT));
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         BottomNavigationHelper.setupBottomNavigation(this, bottomNavigationView);
@@ -39,9 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         DatabaseHelper dh = new DatabaseHelper(HomeActivity.this);
         Cursor cur = dh.readAllContacts();
 
-        if(cur.getCount() == 0){
-            //NO DATA
-        }else {
+        if (cur.getCount() != 0) {
             while(cur.moveToNext()){
                 Contact c = new Contact(
                         cur.getInt(0),
