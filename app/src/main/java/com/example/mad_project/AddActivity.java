@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.SystemBarStyle;
@@ -49,12 +50,18 @@ public class AddActivity extends AppCompatActivity {
             String lastName = txtLastName.getText().toString();
             String contactNumber = txtContactNumber.getText().toString();
 
-            DatabaseHelper dh = new DatabaseHelper(AddActivity.this);
 
-            Contact c = new Contact(firstName, lastName, contactNumber);
-            dh.createContact(c);
+            if((contactNumber.length()==11&&contactNumber.startsWith("0"))||(contactNumber.length()==13&&contactNumber.startsWith("+63"))){
+                DatabaseHelper dh = new DatabaseHelper(AddActivity.this);
 
-            dialog.show();
+                Contact c = new Contact(firstName, lastName, contactNumber);
+                dh.createContact(c);
+
+                dialog.show();
+            }else{
+                Toast.makeText(this, "Number must start with +63 and 11 digits or start with 0 and 13 digits", Toast.LENGTH_LONG).show();
+            }
+
         });
 
         btnDialogConfirm.setOnClickListener(v -> {

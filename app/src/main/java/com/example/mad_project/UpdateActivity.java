@@ -71,20 +71,24 @@ public class UpdateActivity extends AppCompatActivity {
             String lastName = txtLastName.getText().toString();
             String contactNumber = txtContactNumber.getText().toString();
 
-            Contact c = new Contact(ID, firstName, lastName, contactNumber);
-            long result = dh.updateContactByID(c);
+            if((contactNumber.length()==11&&contactNumber.startsWith("0"))||(contactNumber.length()==13&&contactNumber.startsWith("+63"))){
+                Contact c = new Contact(ID, firstName, lastName, contactNumber);
+                long result = dh.updateContactByID(c);
 
-            if (result == -1){
-                Toast.makeText(this, "ERROR!", Toast.LENGTH_SHORT).show();
-            }else {
-                Toast.makeText(this, "UPDATE SUCCESSFUL", Toast.LENGTH_SHORT).show();
-                btnDialogConfirm.setOnClickListener(v1 -> {
-                    dialog.dismiss();
-                    getOnBackPressedDispatcher().onBackPressed();
-                });
+                if (result == -1){
+                    Toast.makeText(this, "ERROR!", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(this, "UPDATE SUCCESSFUL", Toast.LENGTH_SHORT).show();
+                    btnDialogConfirm.setOnClickListener(v1 -> {
+                        dialog.dismiss();
+                        getOnBackPressedDispatcher().onBackPressed();
+                    });
 
+                }
+                dialog.show();
+            }else{
+                Toast.makeText(this, "Number must start with +63 and 11 digits or start with 0 and 13 digits", Toast.LENGTH_LONG).show();
             }
-            dialog.show();
         });
 
 

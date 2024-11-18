@@ -83,26 +83,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //SINGLE READ BY ID
     public Cursor readContactByID(String id){
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE id = " + id;
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE id = ?";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
-        if (db!= null) cursor = db.rawQuery(query, null);
+        if (db!= null) cursor = db.rawQuery(query, new String[]{id});
 
         return cursor;
     }
 
     //SINGLE READ BY NAME
-    public Cursor readContactsBySearch(String name){
-        String query = "SELECT * FROM " + TABLE_NAME +
-                " WHERE first_name LIKE '" + name //search by firstname
-                + "%' OR last_name LIKE'" + name //search by lastname
-                + "%' OR contact_number LIKE'%" + name + "%'"; //search by contactnumber
+    public Cursor readContactsBySearch(String s){
+        String name = s+"%";
+        String contact = "%"+s+"%";
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE first_name LIKE ? OR last_name LIKE ? OR contact_number LIKE ?";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
-        if (db!= null) cursor = db.rawQuery(query, null);
-
+        if (db!= null) cursor = db.rawQuery(query, new String[]{name,name,contact});
         return cursor;
     }
 

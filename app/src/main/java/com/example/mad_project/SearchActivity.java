@@ -54,7 +54,6 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        displayContacts();
     }
 
     private void displayContacts() {
