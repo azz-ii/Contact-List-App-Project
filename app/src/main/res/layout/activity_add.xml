@@ -110,7 +110,7 @@
             android:id="@+id/txtContactNumber"
             android:layout_width="270dp"
             android:layout_height="53dp"
-            android:maxLength="11"
+            android:maxLength="14"
             android:textColor="@color/primary"
             android:background="@drawable/input_bg"
             android:fontFamily="@font/gabarito"

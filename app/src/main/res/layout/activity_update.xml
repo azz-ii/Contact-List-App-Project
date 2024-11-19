@@ -121,7 +121,7 @@
             android:id="@+id/txtContactNumber"
             android:layout_width="270dp"
             android:layout_height="43dp"
-            android:maxLength="11"
+            android:maxLength="14"
             android:background="@drawable/input_bg"
             android:fontFamily="@font/gabarito"
             android:hint="Contact Number"

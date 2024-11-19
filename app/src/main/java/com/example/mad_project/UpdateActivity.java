@@ -71,7 +71,7 @@ public class UpdateActivity extends AppCompatActivity {
             String lastName = txtLastName.getText().toString();
             String contactNumber = txtContactNumber.getText().toString();
 
-            if((contactNumber.length()==11&&contactNumber.startsWith("0"))||(contactNumber.length()==13&&contactNumber.startsWith("+63"))){
+            if((contactNumber.length()==11&&contactNumber.startsWith("0"))||((contactNumber.length()>=11&&contactNumber.length()<=14)&&contactNumber.startsWith("+"))){
                 Contact c = new Contact(ID, firstName, lastName, contactNumber);
                 long result = dh.updateContactByID(c);
 
@@ -87,7 +87,7 @@ public class UpdateActivity extends AppCompatActivity {
                 }
                 dialog.show();
             }else{
-                Toast.makeText(this, "Number must start with +63 and 11 digits or start with 0 and 13 digits", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Number must start with '+' and be between 11 to 14 digits or start with '0' and have a total of 11 digits", Toast.LENGTH_LONG).show();
             }
         });
 
