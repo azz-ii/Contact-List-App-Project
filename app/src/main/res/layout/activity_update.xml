@@ -15,6 +15,7 @@
         android:layout_marginTop="48dp"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,12 +33,12 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
             android:id="@+id/lblContacts"
@@ -56,19 +57,21 @@
             android:fontFamily="@font/gabarito"
             android:text="@string/lbl_fill"
             android:textColor="@color/white"
-            android:textSize="17sp"/>
+            android:textSize="17sp" />
 
     </LinearLayout>
 
 
     <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="81dp"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
@@ -76,11 +79,12 @@
             android:id="@+id/lblID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Current ID: 1"
-            android:textStyle="bold"
             android:fontFamily="@font/gabarito"
+            android:text="Current ID: 1"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="21dp" />
@@ -131,7 +135,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="74dp"/>
+            android:layout_height="74dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnUpdate"
@@ -163,5 +167,13 @@
 
     </LinearLayout>
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
