@@ -117,7 +117,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.update(TABLE_NAME, cv, "id=?", new String[]{contact.getID()+""});
     }
 
-    public void deleteOneRow(String row_id){
+    public long deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, COL_ID + "=?", new String[] {row_id});
 
@@ -126,9 +126,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             Toast.makeText(context, "Removed Successfully.", Toast.LENGTH_SHORT).show();
         }
+        return result;
     }
-
-
 
 
 }
