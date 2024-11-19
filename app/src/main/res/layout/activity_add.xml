@@ -76,6 +76,7 @@
             android:id="@+id/txtFirstName"
             android:layout_width="270dp"
             android:layout_height="53dp"
+            android:maxLength="15"
             android:textColor="@color/primary"
             android:background="@drawable/input_bg"
             android:fontFamily="@font/gabarito"
@@ -91,6 +92,7 @@
         <EditText
             android:id="@+id/txtLastName"
             android:layout_width="270dp"
+            android:maxLength="15"
             android:textColor="@color/primary"
             android:layout_height="53dp"
             android:background="@drawable/input_bg"
@@ -108,6 +110,7 @@
             android:id="@+id/txtContactNumber"
             android:layout_width="270dp"
             android:layout_height="53dp"
+            android:maxLength="11"
             android:textColor="@color/primary"
             android:background="@drawable/input_bg"
             android:fontFamily="@font/gabarito"

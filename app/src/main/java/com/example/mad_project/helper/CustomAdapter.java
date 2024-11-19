@@ -59,12 +59,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle("Gonna say goodbye?");
+            builder.setIcon(R.drawable.trash);
             builder.setMessage("Are you sure you want to delete " + holder.txtFullName.getText() + "?");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     DatabaseHelper dh = new DatabaseHelper(context);
-                    dh.deleteOneRow(String.valueOf(c.getID()));
+                    long result = dh.deleteOneRow(String.valueOf(c.getID()));
                     contactList.remove(position);
                     notifyItemRemoved(position);
                 }
