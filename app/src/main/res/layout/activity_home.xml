@@ -66,6 +66,7 @@
             android:id="@+id/rvContacts"
             android:layout_width="match_parent"
             android:layout_height="450dp"
+            android:layout_marginTop="40dp"
             android:layout_weight="1"
             android:fadingEdge="vertical"
             android:fadingEdgeLength="500dp" />
