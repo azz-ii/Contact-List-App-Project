@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.SystemBarStyle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.example.mad_project.entity.Contact;
 import com.example.mad_project.helper.BottomNavigationHelper;
@@ -22,11 +24,14 @@ public class AddActivity extends AppCompatActivity {
     EditText txtFirstName, txtLastName, txtContactNumber;
     Button btnAdd, btnDialogConfirm;
     Dialog dialog;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this, SystemBarStyle.dark(android.graphics.Color.TRANSPARENT));
+
+
 
 
         setContentView(R.layout.activity_add);
@@ -76,5 +81,11 @@ public class AddActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         BottomNavigationHelper.setupBottomNavigation(this, bottomNavigationView);
+        ViewCompat.setOnApplyWindowInsetsListener(bottomNavigationView, (v, insets) -> {
+            // Get system bar insets (including the keyboard height when visible)
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setPadding(0, 0, 0, bottomInset);
+            return insets;
+        });
     }
 }
