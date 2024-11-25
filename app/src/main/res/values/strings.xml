@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MAD_PROJECT</string>
+    <string name="app_name">Kontak</string>
     <string name="lbl_logo">KONTAK</string>
     <string name="lbl_add">Add Contact</string>
     <string name="lbl_added">Contact Added</string>

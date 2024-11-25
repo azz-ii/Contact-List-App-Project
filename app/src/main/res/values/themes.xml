@@ -1,8 +1,10 @@
 <resources>
     <style name="Base.Theme.MAD_PROJECT" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
+        <item name="android:windowBackground">@color/primary</item>
     </style>
     <style name="Theme.MAD_PROJECT" parent="Base.Theme.MAD_PROJECT" />
+
 
     <style name="SlideActivityAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
